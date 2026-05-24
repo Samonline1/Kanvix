@@ -9,19 +9,20 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const allowedOrigin = process.env.CLIENT_URL || true;
 
 connectDb();
 
 app.use(
   cors({
-    origin: true,
+    origin: allowedOrigin,
     credentials: true,
   })
 );
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
-  res.json({ message: "SprintFlow API is running" });
+  res.json({ message: "Kanvix API is running" });
 });
 
 app.use("/api/auth", authRoutes);

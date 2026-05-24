@@ -252,11 +252,39 @@ The goal is to provide a clean, complete full-stack project with practical featu
 
 ## Deployment
 
-Suggested deployment:
+Kanvix is configured for:
 
-- Frontend: Vercel
+- Frontend: Netlify
 - Backend: Render
 - Database: MongoDB Atlas
+
+### Live URLs
+
+- Frontend: `https://kanvix.netlify.app/`
+- Backend: `https://kanvix.onrender.com`
+
+### Netlify Environment Variable
+
+Set this in Netlify:
+
+```env
+VITE_API_URL=https://kanvix.onrender.com/api
+```
+
+### Render Environment Variables
+
+Set these in Render:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+CLIENT_URL=https://kanvix.netlify.app
+```
+
+### Important Render Note
+
+If Render is deploying from the repository root, it needs a root `start` script. This project now includes that, so `npm start` correctly starts the backend workspace.
 
 ## Future Improvements
 
